@@ -1,17 +1,28 @@
 const express = require("express");
-
+const activitiesRouter = require("./routers/activities");
 const app = express();
 
-app.get("apis/records", (req, res) => {
+//Router
+app.use("/apis/activities", activitiesRouter);
+
+//get all records
+app.get("/", (req, res) => {
   res.send("GET API");
 });
-// app.get("/", (req, res) => {
-//   res.send("<h1>Hello</h1>");
+
+//get record by id
+app.get("/:id", (req, res) => {
+  res.send("GET ONE API");
+});
+
+// app.post("/apis/records", (req, res) => {
+//   res.send("POST API");
 // });
 
-app.post("/apis/records", (req, res) => {
-  res.send("POST API");
-});
+// app.put("/apis/records", (req, res) => {
+//   res.send("PUT API");
+// });
+
 app.listen(3000, () => {
-  console.log("Listenig to port 3000");
+  console.log("Listening to port 3000");
 });
