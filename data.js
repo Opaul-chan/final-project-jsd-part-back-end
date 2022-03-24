@@ -28,3 +28,5 @@ const data = [
     activityDescription: "happy and fun",
   },
 ];
+
+module.exports = data;
